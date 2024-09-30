@@ -375,10 +375,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver, Ticker
                           : () {
                               routeToPage(
                                 context,
-                                ConnectedDevice(
-                                  device: deviceProvider.connectedDevice!,
-                                  batteryLevel: deviceProvider.batteryLevel,
-                                ),
+                                const ConnectedDevice(),
                               );
                               MixpanelManager().batteryIndicatorClicked();
                             },
@@ -430,12 +427,8 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver, Ticker
                           routeToPage(context, const ConnectDevicePage());
                           MixpanelManager().connectFriendClicked();
                         } else {
-                          await routeToPage(
-                              context,
-                              ConnectedDevice(
-                                  device: deviceProvider.connectedDevice, batteryLevel: deviceProvider.batteryLevel));
+                          await routeToPage(context, const ConnectedDevice());
                         }
-                        // setState(() {});
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
